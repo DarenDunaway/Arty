@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
-import { Card, ListItem, Button, Icon , SearchBar} from 'react-native-elements';
+import { Card, ListItem, Button, Icon, SearchBar } from 'react-native-elements';
 import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PostPage from './PostPage'

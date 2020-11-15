@@ -33,7 +33,7 @@ export default function ActivityPage() {
             fontWeight: 'bold',
           }, headerRight: () => (
             <Button
-             // onPress={() => navigate(PostPage)}
+              // onPress={() => navigate(PostPage)}
               type='clear'
               icon={<MaterialCommunityIcons name="plus" color="white" size={30} />}
             />

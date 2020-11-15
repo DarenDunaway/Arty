@@ -23,6 +23,7 @@ export default function PostList(props) {
     return(
         <View style ={{paddingTop: 20}}>
         <ScrollView style={{margin:5}}>
+
             {posts && posts.map((post) => 
                 <Card key={post.id}>
                     <ListItem>
