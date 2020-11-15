@@ -5,6 +5,7 @@ import { Card, ListItem, Button } from 'react-native-elements';
 export default function PostPage({navigation}, props) {
   const[compositionText, setCompositionText] = useState('');
   const[captionText, setCaptionText] = useState('');
+  //const {addPostToList} = props;
   function submitForm(event){
 
   }

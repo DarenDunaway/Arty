@@ -1,6 +1,21 @@
 import React, {Component, useState} from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView, Modal, TouchableHighlight} from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
+import { StyleSheet, Text, View, Image, TextInput, ScrollView, Modal, TouchableHighlight} from 'react-native';
+import { Card, ListItem, Button , Avatar} from 'react-native-elements';
+
+const users = [
+    {
+      name: 'John Doe',
+      avatar_url: 'https://images.generated.photos/YK8FaJrvA_kB8sh6QgrOkanq6G8ak3W7c62DjW1dcpA/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAyODM3MjAuanBn.jpg',
+    },
+    {
+        name: 'Jane Doe',
+        avatar_url: 'https://images.generated.photos/Q3jx0x773rW6MB2AaHQCztPKNmjoQWqH2jXsuND_T4g/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA5MDAwODkuanBn.jpg',
+      },
+      {
+        name: 'Johnny Appleseed',
+        avatar_url: 'https://images.generated.photos/jPZ1NQyZT3W99wB8k_2uRLSQCScq0WvhPiJ2Iwyse5M/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAyNDM3MjEuanBn.jpg',
+      },
+  ]
 
 export default function PostList(props) {
     const {posts} = props;
@@ -10,7 +25,12 @@ export default function PostList(props) {
         <ScrollView style={{margin:5}}>
             {posts && posts.map((post) => 
                 <Card key={post.id}>
-                    <Card.Title>Username and profile picture</Card.Title>
+                    <ListItem>
+                        <Avatar rounded source={{uri: users[Math.floor(Math.random() * users.length)].avatar_url}}/>
+                        <ListItem.Content>
+                            <ListItem.Title>{users[Math.floor(Math.random() * users.length)].name}</ListItem.Title>
+                        </ListItem.Content>
+                    </ListItem>
                     <Card.Divider/>
                     <Text style={{marginBottom: 10}}>
                         {`${post.body.slice(0,20)}...`}
@@ -99,6 +119,13 @@ const styles = StyleSheet.create({
       marginBottom: 15,
       textAlign: "center",
       color: "black"
-    }
+    },
+    image: {
+        width: 150,
+        height: 150,
+        borderColor: 'red',
+        borderWidth: 2,
+        borderRadius: 75
+      },
   });
   

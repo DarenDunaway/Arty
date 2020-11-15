@@ -6,6 +6,7 @@ import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PostPage from './PostPage'
 import PostList from './PostList'
+import { add } from 'react-native-reanimated';
 
 const MainStack = createStackNavigator();
 
@@ -18,8 +19,8 @@ function HomeScreen() {
     .then(json => setPosts(json))
   }, [])
 
-  function addPostToList(){
-
+  function addPostToList(newPost){
+    setPosts([newPost, ...posts])
   }
 
   return (
