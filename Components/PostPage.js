@@ -2,15 +2,9 @@ import React, {Component, useState} from 'react';
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 
-export default function PostPage({navigation}, props) {
+export default function PostPage({navigation}) {
   const[compositionText, setCompositionText] = useState('');
   const[captionText, setCaptionText] = useState('');
-  const {addPostToList} = props;
-
- // function submitForm(event){
-   // addPostToList({id: String(Math.random()* 100 + 100), title, body})
-   // console.log('on Submit', title)
- // }
 
   return (
     <View style={styles.container}>
@@ -18,13 +12,13 @@ export default function PostPage({navigation}, props) {
       <TextInput style= {styles.inputText}
       placeholder = "Text/File"
       multiline={true}
-      setCompositionText={event=>setCompositionText(event)}
+      setCompositionText={event=>setCompositionText(event.target.value)}
       compositionText={compositionText}/>
       <Text>Caption</Text>
       <TextInput style= {styles.inputText}
       placeholder = "Caption"
       multiline={true}
-      setCaptionText={event=>setCaptionText(event)}
+      setCaptionText={event=>setCaptionText(event.target.value)}
       captionText={captionText}/>
       <Button title="Post" onPress={() => {navigation.pop()}}>
       </Button>
