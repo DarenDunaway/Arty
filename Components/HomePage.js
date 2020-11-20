@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar , Alert, Modal, TouchableHighlight} from 'react-native'
 import { Card, ListItem, Button } from 'react-native-elements';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
+import { StackActions } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PostPage from './PostPage'
 import PostList from './PostList'
@@ -48,7 +49,7 @@ export default function HomePage({navigation}) {
             fontWeight: 'bold',
           }, headerRight: () => (
             <Button
-              onPress={() => navigation.navigate('modal')} 
+              onPress={() => navigation.navigate("modal")} 
               type='clear'
               icon={<MaterialCommunityIcons name="plus" color="white" size={30} />}
             />

@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import { StyleSheet, Text, View, TextInput} from 'react-native';
+import { TouchableWithoutFeedback, Keyboard, StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 
 export default function PostPage({navigation}) {
@@ -7,22 +7,24 @@ export default function PostPage({navigation}) {
   const[captionText, setCaptionText] = useState('');
 
   return (
-    <View style={styles.container}>
-      <Text>Composition</Text>
-      <TextInput style= {styles.inputText}
-      placeholder = "Text/File"
-      multiline={true}
-      setCompositionText={event=>setCompositionText(event.target.value)}
-      compositionText={compositionText}/>
-      <Text>Caption</Text>
-      <TextInput style= {styles.inputText}
-      placeholder = "Caption"
-      multiline={true}
-      setCaptionText={event=>setCaptionText(event.target.value)}
-      captionText={captionText}/>
-      <Button title="Post" onPress={() => {navigation.pop()}}>
-      </Button>
-    </View>
+      <KeyboardAvoidingView 
+        style={styles.container} 
+        behavior="padding">
+        <Text>Composition</Text>
+        <TextInput style= {styles.inputText}
+        placeholder = "Text/File"
+        multiline={true}
+        setCompositionText={event=>setCompositionText(event.target.value)}
+        compositionText={compositionText}/>
+        <Text>Caption</Text>
+        <TextInput style= {styles.inputText}
+        placeholder = "Caption"
+        multiline={true}
+        setCaptionText={event=>setCaptionText(event.target.value)}
+        captionText={captionText}/>
+        <Button title="Post" onPress={() => {navigation.pop()}}>
+        </Button>
+      </KeyboardAvoidingView>
   );
 }
 
