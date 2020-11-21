@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -7,6 +8,7 @@ import {
   SafeAreaView,
   StatusBar,
   ScrollView,
+  Alert,
 } from "react-native";
 import { Card, ListItem, Button, Icon } from "react-native-elements";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -15,19 +17,65 @@ import SettingsPage from "./SettingsPage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Stack = createStackNavigator();
+var bioName = "John Doe";
+var bioOccupation = "Student";
+var bioMessage = "default bio";
 
 function ProfileScreen() {
+  const [bioMessage = "default bio", setbioMessage] = useState();
+  const [bioName = "John Doe", setbioName] = useState();
+  const [bioOccupation = "Student", setbioOccupation] = useState();
+
+  function editBio() {
+    Alert.alert("Edit Profile", "", [
+      { text: "bio", onPress: editBioMessage },
+      { text: "name", onPress: editBioName },
+      { text: "occupation", onPress: editBioOccupation },
+    ]);
+  }
+
+  function editBioMessage() {
+    Alert.prompt("Edit Bio", "Type your new bio below", (text) => {
+      console.log(text);
+      setbioMessage(text);
+    });
+    return console.log(bioMessage);
+  }
+
+  function editBioName() {
+    Alert.prompt("Edit Name", "Type your new name below", (text) => {
+      console.log(text);
+      setbioName(text);
+    });
+    return console.log(bioName);
+  }
+
+  function editBioOccupation() {
+    Alert.prompt(
+      "Edit Occupation",
+      "Type your new occupation below",
+      (text) => {
+        console.log(text);
+        setbioOccupation(text);
+      }
+    );
+    return console.log(bioOccupation);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.titleBar}>
-          <MaterialCommunityIcons
-            name="pencil"
-            backgroundColor="grey"
-            size={26}
+          <Button
+            type="clear"
+            onPress={editBio}
+            icon={
+              <MaterialCommunityIcons name="pencil" color="grey" size={26} />
+            }
           />
         </View>
+
         <View style={{ alignSelf: "center" }}>
           <View style={styles.profileImage}>
             <Image
@@ -37,14 +85,11 @@ function ProfileScreen() {
             />
           </View>
         </View>
+
         <View style={styles.bio}>
-          <Text style={{ fontWeight: "200", fontSize: 38 }}>John Doe</Text>
-          <Text style={{ fontSize: 18 }}>Student</Text>
-          <Text>
-            Some stuff about me... I like fishing and running around the lake. I
-            used to snowboard but now I really hate the snow because I saw
-            bigfoot and he tried to eat me but I slew him with my trusty dagger
-          </Text>
+          <Text style={{ fontWeight: "200", fontSize: 38 }}>{bioName}</Text>
+          <Text style={{ fontSize: 18 }}>{bioOccupation}</Text>
+          <Text>{bioMessage}</Text>
         </View>
 
         <View style={styles.metricContainer}>
