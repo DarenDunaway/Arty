@@ -11,7 +11,7 @@ import { add } from 'react-native-reanimated';
 
 const MainStack = createStackNavigator();
 
-function HomeScreen() {
+function HomeScreen({navigation}) {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -20,7 +20,11 @@ function HomeScreen() {
     .then(json => setPosts(json))
   }, [])
 
-  function addPostToList(newPost){
+  useEffect(()=>{
+    navigation.setParams({createPost: () => createPost(newPost)})
+  }, [navigation.setParams])
+
+  function createPost(newPost){
     setPosts([newPost, ...posts])
   }
 
@@ -34,7 +38,7 @@ function HomeScreen() {
   );
 }
 
-export default function HomePage({navigation}) {
+export default function HomePage({navigation, route}) {
   return (
     <MainStack.Navigator screenOptions={{animationEnabled:false}} mode="modal" >
       <MainStack.Screen
@@ -49,7 +53,7 @@ export default function HomePage({navigation}) {
             fontWeight: 'bold',
           }, headerRight: () => (
             <Button
-              onPress={() => navigation.navigate("modal")} 
+              onPress={() => navigation.navigate("modal", {createPost: route.state.routes[0].params.createPost})} 
               type='clear'
               icon={<MaterialCommunityIcons name="plus" color="white" size={30} />}
             />

@@ -20,6 +20,11 @@ const users = [
 export default function PostList(props) {
     const {posts} = props;
     const [modalVisible, setModalVisible] = useState(false);
+
+    function getRandomUser(){
+      return Math.floor(Math.random() * users.length);
+    }
+
     return(
         <View style ={{paddingTop: 20}}>
         <ScrollView style={{margin:5}}>
@@ -27,16 +32,17 @@ export default function PostList(props) {
             {posts && posts.map((post) => 
                 <Card key={post.id}>
                     <ListItem>
-                        <Avatar rounded source={{uri: users[Math.floor(Math.random() * users.length)].avatar_url}}/>
+                        <Avatar rounded source={{uri: users[getRandomUser()].avatar_url}}/>
                         <ListItem.Content>
-                            <ListItem.Title>{users[Math.floor(Math.random() * users.length)].name}</ListItem.Title>
+                            <ListItem.Title>{users[getRandomUser()].name}</ListItem.Title>
                         </ListItem.Content>
                     </ListItem>
                     <Card.Divider/>
                     <Text style={{marginBottom: 10}}>
-                        {`${post.body.slice(0,20)}...`}
+                        {post.body}
                     </Text>
                     <Card.Divider/>
+                    <Text>{users[getRandomUser()].name}</Text>
                     <Text>{post.title.toUpperCase()}</Text>
                     <Card.Divider/>
 

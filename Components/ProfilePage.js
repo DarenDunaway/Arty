@@ -159,7 +159,7 @@ export default function ProfilePage({ navigation }) {
           },
           headerRight: () => (
             <Button
-              onPress={() => navigation.navigate("modal")}
+              onPress={() => navigation.navigate("settingsModal")}
               type="clear"
               icon={<FontAwesome name="gear" color="white" size={30} />}
             />
@@ -168,7 +168,7 @@ export default function ProfilePage({ navigation }) {
       />
       <Stack.Screen
         component={SettingsPage}
-        name="modal"
+        name="settingsModal"
         options={{
           animationEnabled: true,
           title: "Arty",

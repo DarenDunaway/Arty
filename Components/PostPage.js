@@ -2,9 +2,14 @@ import React, {Component, useState} from 'react';
 import { TouchableWithoutFeedback, Keyboard, StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 
-export default function PostPage({navigation}) {
+export default function PostPage({navigation, route}) {
   const[compositionText, setCompositionText] = useState('');
   const[captionText, setCaptionText] = useState('');
+  const {createPost} = route.params
+
+function handleCreatePost(event){
+  createPost({id: String(Math.random() * 1000 + 100), compositionText, captionText})
+}
 
   return (
       <KeyboardAvoidingView 
@@ -22,7 +27,7 @@ export default function PostPage({navigation}) {
         multiline={true}
         setCaptionText={event=>setCaptionText(event.target.value)}
         captionText={captionText}/>
-        <Button title="Post" onPress={() => {navigation.pop()}}>
+        <Button title="Post" onPress={() => {handleCreatePost; navigation.pop()}}>
         </Button>
       </KeyboardAvoidingView>
   );
