@@ -1,13 +1,11 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
-import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar , Alert, Modal, TouchableHighlight} from 'react-native'
-import { Card, ListItem, Button } from 'react-native-elements';
-import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
-import { StackActions } from '@react-navigation/native';
+import { View, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
+import { Button } from 'react-native-elements';
+import { createStackNavigator } from '@react-navigation/stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PostPage from './PostPage'
 import PostList from './PostList'
-import { add } from 'react-native-reanimated';
 
 const MainStack = createStackNavigator();
 
@@ -21,7 +19,7 @@ function HomeScreen({navigation}) {
   }, [])
 
   useEffect(()=>{
-    navigation.setParams({createPost: () => createPost(newPost)})
+   navigation.setParams({createPost: () => createPost(newPost)})
   }, [navigation.setParams])
 
   function createPost(newPost){

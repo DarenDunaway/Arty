@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import { View, Text, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import PostPage from './PostPage'
 
 const Stack = createStackNavigator();
 
@@ -31,13 +28,7 @@ export default function ActivityPage() {
           headerTintColor: 'white',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }, headerRight: () => (
-            <Button
-              // onPress={() => navigate(PostPage)}
-              type='clear'
-              icon={<MaterialCommunityIcons name="plus" color="white" size={30} />}
-            />
-          )
+          }
         }}
       />
     </Stack.Navigator>

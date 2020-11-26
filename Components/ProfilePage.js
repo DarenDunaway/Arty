@@ -10,44 +10,37 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
-import { Card, ListItem, Button, Icon } from "react-native-elements";
+import { Button } from "react-native-elements";
 import { createStackNavigator } from "@react-navigation/stack";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import SettingsPage from "./SettingsPage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Stack = createStackNavigator();
-var bioName = "John Doe";
-var bioOccupation = "Student";
-var bioMessage = "default bio";
 
 function ProfileScreen() {
-  const [bioMessage = "default bio", setbioMessage] = useState();
+  const [bioMessage = "Default Bio", setbioMessage] = useState();
   const [bioName = "John Doe", setbioName] = useState();
   const [bioOccupation = "Student", setbioOccupation] = useState();
 
   function editBio() {
     Alert.alert("Edit Profile", "", [
-      { text: "bio", onPress: editBioMessage },
-      { text: "name", onPress: editBioName },
-      { text: "occupation", onPress: editBioOccupation },
+      { text: "Bio", onPress: editBioMessage },
+      { text: "Name", onPress: editBioName },
+      { text: "Occupation", onPress: editBioOccupation },
     ]);
   }
 
   function editBioMessage() {
     Alert.prompt("Edit Bio", "Type your new bio below", (text) => {
-      console.log(text);
       setbioMessage(text);
     });
-    return console.log(bioMessage);
   }
 
   function editBioName() {
     Alert.prompt("Edit Name", "Type your new name below", (text) => {
-      console.log(text);
       setbioName(text);
     });
-    return console.log(bioName);
   }
 
   function editBioOccupation() {
@@ -55,11 +48,9 @@ function ProfileScreen() {
       "Edit Occupation",
       "Type your new occupation below",
       (text) => {
-        console.log(text);
         setbioOccupation(text);
       }
     );
-    return console.log(bioOccupation);
   }
 
   return (

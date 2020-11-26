@@ -1,6 +1,6 @@
-import React, {Component, useState} from 'react';
-import { StyleSheet, Text, View, Image, TextInput, ScrollView, Modal, TouchableHighlight} from 'react-native';
-import { Card, ListItem, Button , Avatar} from 'react-native-elements';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView, Modal, TouchableHighlight} from 'react-native';
+import { Card, ListItem, Avatar} from 'react-native-elements';
 
 const users = [
     {

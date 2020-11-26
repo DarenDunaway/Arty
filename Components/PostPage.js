@@ -1,6 +1,6 @@
-import React, {Component, useState} from 'react';
-import { TouchableWithoutFeedback, Keyboard, StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
+import React, { useState} from 'react';
+import { StyleSheet, Text, TextInput, KeyboardAvoidingView } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export default function PostPage({navigation, route}) {
   const[compositionText, setCompositionText] = useState('');

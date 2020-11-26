@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
 
 
 export default function SettingsPage({navigation}) {
