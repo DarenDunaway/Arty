@@ -30,7 +30,9 @@ function HomeScreen({ navigation }) {
 
   //This is how we would declare our initial array of posts using Redux.
   //If you comment out all of the above code (withing HomeScreen), and
-  //uncomment this, then you should be able to see the posts as a global state.
+  //uncomment this, then you should be able to see the posts. The
+  //difference is that these posts can be accessed in any component
+  //as they are now part of a global state.
   //
   //const posts = useSelector((state) => state.posts);
 
