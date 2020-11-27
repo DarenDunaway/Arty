@@ -27,7 +27,7 @@ const users = [
   },
 ];
 
-let profileHolder = { name: "", url: "" };
+var profileHolder = { name: "", url: "" };
 export default function PostList(props) {
   const { posts } = props;
   const [modalVisible, setModalVisible] = useState(false);
