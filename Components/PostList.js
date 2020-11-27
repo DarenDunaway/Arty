@@ -17,13 +17,18 @@ const users = [
       },
   ]
 
+var profileHolder = { name: "", url: "" };
 export default function PostList(props) {
     const {posts} = props;
     const [modalVisible, setModalVisible] = useState(false);
 
-    function getRandomUser(){
-      return Math.floor(Math.random() * users.length);
-    }
+   function getRandomUser() {
+    var index = Math.floor(Math.random() * users.length);
+    profileHolder.name = users[index].name;
+    profileHolder.url = users[index].avatar_url;
+    console.log(profileHolder);
+    return index
+  }
 
     return(
         <View style ={{paddingTop: 20}}>
@@ -34,7 +39,7 @@ export default function PostList(props) {
                     <ListItem>
                         <Avatar rounded source={{uri: users[getRandomUser()].avatar_url}}/>
                         <ListItem.Content>
-                            <ListItem.Title>{users[getRandomUser()].name}</ListItem.Title>
+                            <ListItem.Title>{profileHolder.name}</ListItem.Title>
                         </ListItem.Content>
                     </ListItem>
                     <Card.Divider/>
@@ -42,7 +47,7 @@ export default function PostList(props) {
                         {post.body}
                     </Text>
                     <Card.Divider/>
-                    <Text>{users[getRandomUser()].name}</Text>
+                    <Text>{profileHolder.name}</Text>
                     <Text>{post.title.toUpperCase()}</Text>
                     <Card.Divider/>
 
