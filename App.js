@@ -9,14 +9,15 @@ import ActivityPage from "./Components/ActivityPage";
 import ProfilePage from "./Components/ProfilePage";
 
 //Redux
-//import allReducers from "./reducers/allReducers";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
 import { fetchPosts } from "./reducers/postReducer";
 import postReducer from "./reducers/postReducer";
+import thunk from "redux-thunk";
 
 const store = createStore(postReducer, applyMiddleware(thunk));
+
+//Initialize the post array with posts from the API
 store.dispatch(fetchPosts);
 
 const Tab = createMaterialBottomTabNavigator();

@@ -6,35 +6,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import PostPage from "./PostPage";
 import PostList from "./PostList";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchPosts } from "../reducers/postReducer";
+import { useSelector } from "react-redux";
 
 const MainStack = createStackNavigator();
 
 function HomeScreen({ navigation }) {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((json) => setPosts(json));
-  }, []);
-
-  useEffect(() => {
-    navigation.setParams({ createPost: () => createPost(newPost) });
-  }, [navigation.setParams]);
-
-  function createPost(newPost) {
-    setPosts([newPost, ...posts]);
-  }
-
-  //This is how we would declare our initial array of posts using Redux.
-  //If you comment out all of the above code (withing HomeScreen), and
-  //uncomment this, then you should be able to see the posts. The
-  //difference is that these posts can be accessed in any component
-  //as they are now part of a global state.
-  //
-  //const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,7 +23,7 @@ function HomeScreen({ navigation }) {
   );
 }
 
-export default function HomePage({ navigation, route }) {
+export default function HomePage({ navigation }) {
   return (
     <MainStack.Navigator
       screenOptions={{ animationEnabled: false }}
@@ -66,12 +43,7 @@ export default function HomePage({ navigation, route }) {
           },
           headerRight: () => (
             <Button
-              onPress={() =>
-                navigation.navigate("modal", {
-                  //Get rid of the following if trying to use Redux:
-                  createPost: route.state.routes[0].params.createPost,
-                })
-              }
+              onPress={() => navigation.navigate("modal")}
               type="clear"
               icon={
                 <MaterialCommunityIcons name="plus" color="white" size={30} />

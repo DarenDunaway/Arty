@@ -6,8 +6,10 @@ const postReducer = (state = [], action) => {
       };
     }
     case "ADD_POST": {
+      console.log("action hit");
+      console.log([action.payload, ...state.posts]);
       return {
-        posts: [action.payload, ...state],
+        posts: [action.payload, ...state.posts],
       };
     }
     default:
