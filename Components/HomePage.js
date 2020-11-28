@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import { View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
 import { Button } from "react-native-elements";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -10,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const MainStack = createStackNavigator();
 
-function HomeScreen({ navigation }) {
+function HomeScreen() {
   const posts = useSelector((state) => state.posts);
 
   return (
@@ -77,42 +76,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 1,
     backgroundColor: "#ecf0f1",
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "grey",
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 4,
-    elevation: 10,
-  },
-  openButton: {
-    backgroundColor: "black",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 10,
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
-    color: "black",
-  },
+  }
 });

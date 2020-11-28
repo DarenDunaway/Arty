@@ -6,8 +6,6 @@ const postReducer = (state = [], action) => {
       };
     }
     case "ADD_POST": {
-      console.log("action hit");
-      console.log([action.payload, ...state.posts]);
       return {
         posts: [action.payload, ...state.posts],
       };
@@ -17,7 +15,6 @@ const postReducer = (state = [], action) => {
   }
 };
 
-//Fetches the initial array of posts
 export async function fetchPosts(dispatch) {
   const response = [];
 

@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Modal,
-  TouchableHighlight,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Modal, TouchableHighlight } from "react-native";
 import { Card, ListItem, Avatar } from "react-native-elements";
 
 const users = [
@@ -36,7 +29,6 @@ export default function PostList(props) {
     var index = Math.floor(Math.random() * users.length);
     profileHolder.name = users[index].name;
     profileHolder.url = users[index].avatar_url;
-    console.log(profileHolder);
     return index;
   }
 
@@ -100,17 +92,11 @@ export default function PostList(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 1,
-    backgroundColor: "#ecf0f1",
-  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
+    marginTop: 20,
   },
   modalView: {
     margin: 20,
@@ -129,7 +115,6 @@ const styles = StyleSheet.create({
   },
   openButton: {
     backgroundColor: "black",
-    borderRadius: 20,
     padding: 10,
     elevation: 10,
   },
@@ -142,12 +127,5 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
     color: "black",
-  },
-  image: {
-    width: 150,
-    height: 150,
-    borderColor: "red",
-    borderWidth: 2,
-    borderRadius: 75,
-  },
+  }
 });

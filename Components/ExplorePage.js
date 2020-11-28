@@ -10,7 +10,7 @@ function ExploreScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Explore Page</Text>
+        <Text>Explore Page. Not Yet Implemented!</Text>
       </View>
     </SafeAreaView>
   )
@@ -42,11 +42,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 1,
     backgroundColor: '#ecf0f1',
-  },
-  paragraph: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 1
-  },
+  }
 });
