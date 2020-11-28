@@ -8,6 +8,7 @@ import {
   TouchableHighlight,
 } from "react-native";
 import { Card, ListItem, Avatar } from "react-native-elements";
+import CommentPage from './CommentPage'
 
 const users = [
   {
@@ -70,7 +71,7 @@ export default function PostList(props) {
                 <View style={styles.centeredView}>
                   <View style={styles.modalView}>
                     <Text style={styles.modalText}>
-                      Display comments and add ability to create comments
+                      <CommentPage/>
                     </Text>
                     <TouchableHighlight
                       style={{ ...styles.openButton, backgroundColor: "black" }}
@@ -111,6 +112,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    backgroundColor: 'rgba(0,0,0,0.7)',
   },
   modalView: {
     margin: 20,
