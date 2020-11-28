@@ -15,10 +15,9 @@ export default function SettingsPage() {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      padding: 1,
-      backgroundColor: '#ecf0f1',
+        flex: 1,
+        justifyContent: 'center',
+        padding: 1,
+        backgroundColor: '#ecf0f1',
     }
-  });
-  
+});

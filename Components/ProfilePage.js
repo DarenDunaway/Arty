@@ -1,15 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  ScrollView,
-  Alert,
-} from "react-native";
+import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar, ScrollView, Alert } from "react-native";
 import { Button } from "react-native-elements";
 import { createStackNavigator } from "@react-navigation/stack";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -86,7 +77,7 @@ function ProfileScreen() {
         <View style={styles.metricContainer}>
           <View style={styles.metricBox}>
             <Text style={{ fontSize: 24 }}>23</Text>
-            <Text>posts</Text>
+            <Text>Posts</Text>
           </View>
           <View
             style={[
@@ -95,11 +86,11 @@ function ProfileScreen() {
             ]}
           >
             <Text style={{ fontSize: 24 }}>420</Text>
-            <Text>followers</Text>
+            <Text>Followers</Text>
           </View>
           <View style={styles.metricBox}>
             <Text style={{ fontSize: 24 }}>300</Text>
-            <Text>follows</Text>
+            <Text>Follows</Text>
           </View>
         </View>
 
@@ -147,6 +138,8 @@ export default function ProfilePage({ navigation }) {
           headerTintColor: "white",
           headerTitleStyle: {
             fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 35
           },
           headerRight: () => (
             <Button
@@ -161,14 +154,18 @@ export default function ProfilePage({ navigation }) {
         component={SettingsPage}
         name="settingsModal"
         options={{
+          headerBackImage: () => <MaterialCommunityIcons style={{ marginLeft: 15 }} name="close" color="white" size={30} />,
+          headerBackTitleVisible: false,
           animationEnabled: true,
-          title: "Arty",
+          title: "Settings",
           headerStyle: {
             backgroundColor: "black",
           },
           headerTintColor: "white",
           headerTitleStyle: {
             fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 20
           },
         }}
       ></Stack.Screen>

@@ -33,27 +33,27 @@ export default function PostList(props) {
   }
 
   return (
-    <View style={{ paddingTop: 20 }}>
-      <ScrollView style={{ margin: 5 }}>
+    <View>
+      <ScrollView>
         {posts &&
           posts.map((post) => (
-            <Card key={post.id}>
+            <Card containerStyle={{ borderColor: "white", backgroundColor: 'white' }} key={post.id}>
               <ListItem>
                 <Avatar
                   rounded
+                  size={50}
                   source={{ uri: users[getRandomUser()].avatar_url }}
                 />
                 <ListItem.Content>
-                  <ListItem.Title>{profileHolder.name}</ListItem.Title>
+                  <ListItem.Title style={styles.cardUserName}>{profileHolder.name}</ListItem.Title>
                 </ListItem.Content>
               </ListItem>
-              <Card.Divider />
-              <Text style={{ marginBottom: 10 }}>{post.body}</Text>
-              <Card.Divider />
-              <Text>{profileHolder.name}</Text>
-              <Text>{post.title.toUpperCase()}</Text>
-              <Card.Divider />
-
+              <Card.Divider style={{ backgroundColor: 'black' }} />
+              <Text style={styles.cardBodyText}>{post.body}</Text>
+              <Card.Divider style={{ backgroundColor: 'black' }} />
+              <Text style={styles.cardCaptionUsername}>{profileHolder.name}</Text>
+              <Text style={styles.cardCaptionText}>{post.title}</Text>
+              <Card.Divider style={{ backgroundColor: 'black' }} />
               <Modal
                 animationType="fade"
                 transparent={true}
@@ -70,7 +70,7 @@ export default function PostList(props) {
                         setModalVisible(!modalVisible);
                       }}
                     >
-                      <Text style={styles.textStyle}>Close Comments</Text>
+                      <Text style={styles.buttonText}>Close Comments</Text>
                     </TouchableHighlight>
                   </View>
                 </View>
@@ -82,7 +82,7 @@ export default function PostList(props) {
                   setModalVisible(true);
                 }}
               >
-                <Text style={styles.textStyle}>Comments</Text>
+                <Text style={styles.buttonText}>Comments</Text>
               </TouchableHighlight>
             </Card>
           ))}
@@ -127,5 +127,32 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center",
     color: "black",
+  },
+  cardUserName: {
+    fontSize: 20,
+    marginLeft: 5
+  },
+  cardBodyText: {
+    fontSize: 15,
+    fontWeight: '400',
+    marginBottom: 15
+  },
+  cardCaptionText: {
+    fontSize: 12,
+    fontWeight: '400',
+    marginBottom: 15
+  },
+  card: {
+    backgroundColor: "black",
+  },
+  buttonText: {
+    fontFamily: 'GillSans-SemiBold',
+    color: "white",
+    textAlign: "center",
+    fontSize: 15
+  },
+  cardCaptionUsername: {
+    fontSize: 15,
+    fontWeight: '600'
   }
 });

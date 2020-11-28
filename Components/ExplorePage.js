@@ -28,8 +28,10 @@ export default function ExplorePage() {
           },
           headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: 'bold',
-          }
+            fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 35
+          },
         }}
       />
     </Stack.Navigator>

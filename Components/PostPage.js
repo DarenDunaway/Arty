@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, KeyboardAvoidingView, View, Modal, TouchableHighlight } from "react-native";
-import { Button } from "react-native-elements";
 import { useDispatch } from "react-redux";
 import { addPost } from "../actions/addPost.js";
 
@@ -45,7 +44,7 @@ export default function PostPage({ navigation }) {
                   setFileModalVisible(!fileModalVisible);
                 }}
               >
-                <Text style={styles.textStyle}>Cancel</Text>
+                <Text style={styles.buttonText}>Cancel</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -57,7 +56,7 @@ export default function PostPage({ navigation }) {
             setFileModalVisible(true);
           }}
         >
-          <Text style={styles.textStyle}>Add a File</Text>
+          <Text style={styles.buttonText}>Add a File</Text>
         </TouchableHighlight>
         <Modal
           animationType="fade"
@@ -73,7 +72,7 @@ export default function PostPage({ navigation }) {
                   setTagModalVisible(!tagModalVisible);
                 }}
               >
-                <Text style={styles.textStyle}>Cancel</Text>
+                <Text style={styles.buttonText}>Cancel</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -85,7 +84,7 @@ export default function PostPage({ navigation }) {
             setTagModalVisible(true);
           }}
         >
-          <Text style={styles.textStyle}>Add a Tag</Text>
+          <Text style={styles.buttonText}>Add a Tag</Text>
         </TouchableHighlight>
       </View>
       <TouchableHighlight
@@ -103,7 +102,7 @@ export default function PostPage({ navigation }) {
         }
         }
       >
-        <Text style={styles.textStyle}>Post</Text>
+        <Text style={styles.buttonText}>Post</Text>
       </TouchableHighlight>
     </KeyboardAvoidingView>
   );
@@ -187,5 +186,11 @@ const styles = StyleSheet.create({
     width: '90%',
     textAlign: "center",
     justifyContent: "center",
+  },
+  buttonText: {
+    fontFamily: 'GillSans-SemiBold',
+    color: "white",
+    textAlign: "center",
+    fontSize: 20
   }
 });

@@ -25,10 +25,12 @@ export default function ActivityPage() {
           title: 'Arty', headerStyle: {
             backgroundColor: 'black',
           },
-          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: 'bold',
-          }
+            fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 35
+          },
+          headerTintColor: 'white',
         }}
       />
     </Stack.Navigator>

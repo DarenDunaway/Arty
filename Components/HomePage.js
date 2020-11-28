@@ -39,6 +39,8 @@ export default function HomePage({ navigation }) {
           headerTintColor: "white",
           headerTitleStyle: {
             fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 35
           },
           headerRight: () => (
             <Button
@@ -55,6 +57,8 @@ export default function HomePage({ navigation }) {
         component={PostPage}
         name="modal"
         options={{
+          headerBackImage: () => <MaterialCommunityIcons style={{ marginLeft: 15 }} name="close" color="white" size={30} />,
+          headerBackTitleVisible: false,
           animationEnabled: true,
           title: "Arty",
           headerStyle: {
@@ -63,6 +67,8 @@ export default function HomePage({ navigation }) {
           headerTintColor: "white",
           headerTitleStyle: {
             fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 35
           },
         }}
       ></MainStack.Screen>
@@ -75,6 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 1,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "white",
   }
 });
