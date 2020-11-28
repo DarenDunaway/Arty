@@ -76,15 +76,23 @@ export default function PostList(props) {
                     <TouchableHighlight
                       style={{ ...styles.openButton, backgroundColor: "black" }}
                       onPress={() => {
+                          setModalVisible(!modalVisible);
+                      }}
+                    >
+                      <Text style={styles.textStyle}>Submit</Text>
+                    </TouchableHighlight>
+                    <Text></Text>
+                    <TouchableHighlight
+                      style={{ ...styles.openButton, backgroundColor: "black" }}
+                      onPress={() => {
                         setModalVisible(!modalVisible);
                       }}
                     >
-                      <Text style={styles.textStyle}>Close Comments</Text>
+                      <Text style={styles.textStyle}>X</Text>
                     </TouchableHighlight>
                   </View>
                 </View>
               </Modal>
-
               <TouchableHighlight
                 style={styles.openButton}
                 onPress={() => {
