@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const MainStack = createStackNavigator();
 
 function HomeScreen() {
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.postReducer.posts);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -40,7 +40,7 @@ export default function HomePage({ navigation }) {
           headerTitleStyle: {
             fontWeight: "bold",
             fontFamily: "Baskerville-Italic",
-            fontSize: 35
+            fontSize: 35,
           },
           headerRight: () => (
             <Button
@@ -57,7 +57,14 @@ export default function HomePage({ navigation }) {
         component={PostPage}
         name="modal"
         options={{
-          headerBackImage: () => <MaterialCommunityIcons style={{ marginLeft: 15 }} name="close" color="white" size={30} />,
+          headerBackImage: () => (
+            <MaterialCommunityIcons
+              style={{ marginLeft: 15 }}
+              name="close"
+              color="white"
+              size={30}
+            />
+          ),
           headerBackTitleVisible: false,
           animationEnabled: true,
           title: "Arty",
@@ -68,7 +75,7 @@ export default function HomePage({ navigation }) {
           headerTitleStyle: {
             fontWeight: "bold",
             fontFamily: "Baskerville-Italic",
-            fontSize: 35
+            fontSize: 35,
           },
         }}
       ></MainStack.Screen>
@@ -82,5 +89,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 1,
     backgroundColor: "white",
-  }
+  },
 });

@@ -1,36 +1,55 @@
 import * as React from "react";
 import { useState } from "react";
-import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar, ScrollView, Alert } from "react-native";
-import { Button } from "react-native-elements";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  ScrollView,
+  Alert,
+} from "react-native";
+import { Button, Avatar } from "react-native-elements";
 import { createStackNavigator } from "@react-navigation/stack";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import SettingsPage from "./SettingsPage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+//Redux
+import { useSelector, useDispatch } from "react-redux";
+import { updateBio } from "../actions/updateBio.js";
+import { updateUsername } from "../actions/updateUsername.js";
+import { updateOccupation } from "../actions/updateOccupation.js";
 
 const Stack = createStackNavigator();
 
 function ProfileScreen() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.userReducer.user);
+
   const [bioMessage = "Default Bio", setbioMessage] = useState();
   const [bioName = "John Doe", setbioName] = useState();
   const [bioOccupation = "Student", setbioOccupation] = useState();
 
   function editBio() {
     Alert.alert("Edit Profile", "", [
-      { text: "Bio", onPress: editBioMessage },
       { text: "Name", onPress: editBioName },
       { text: "Occupation", onPress: editBioOccupation },
+      { text: "Bio", onPress: editBioMessage },
     ]);
   }
 
   function editBioMessage() {
     Alert.prompt("Edit Bio", "Type your new bio below", (text) => {
-      setbioMessage(text);
+      dispatch(updateBio(user, text));
+      setbioMessage(user.bio);
     });
   }
 
   function editBioName() {
     Alert.prompt("Edit Name", "Type your new name below", (text) => {
-      setbioName(text);
+      dispatch(updateUsername(user, text));
+      setbioName(user.username);
     });
   }
 
@@ -39,7 +58,8 @@ function ProfileScreen() {
       "Edit Occupation",
       "Type your new occupation below",
       (text) => {
-        setbioOccupation(text);
+        dispatch(updateOccupation(user, text));
+        setbioOccupation(user.occupation);
       }
     );
   }
@@ -60,8 +80,8 @@ function ProfileScreen() {
 
         <View style={{ alignSelf: "center" }}>
           <View style={styles.profileImage}>
-            <Image
-              source={require("../assets/redondo-beach-to-palos-verdes-sunset1.jpg")}
+            <Avatar
+              source={{ uri: user.uri }}
               style={styles.image}
               resizeMode="center"
             />
@@ -139,7 +159,7 @@ export default function ProfilePage({ navigation }) {
           headerTitleStyle: {
             fontWeight: "bold",
             fontFamily: "Baskerville-Italic",
-            fontSize: 35
+            fontSize: 35,
           },
           headerRight: () => (
             <Button
@@ -154,7 +174,14 @@ export default function ProfilePage({ navigation }) {
         component={SettingsPage}
         name="settingsModal"
         options={{
-          headerBackImage: () => <MaterialCommunityIcons style={{ marginLeft: 15 }} name="close" color="white" size={30} />,
+          headerBackImage: () => (
+            <MaterialCommunityIcons
+              style={{ marginLeft: 15 }}
+              name="close"
+              color="white"
+              size={30}
+            />
+          ),
           headerBackTitleVisible: false,
           animationEnabled: true,
           title: "Settings",
@@ -165,7 +192,7 @@ export default function ProfilePage({ navigation }) {
           headerTitleStyle: {
             fontWeight: "bold",
             fontFamily: "Baskerville-Italic",
-            fontSize: 20
+            fontSize: 20,
           },
         }}
       ></Stack.Screen>

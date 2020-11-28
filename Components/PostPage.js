@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, KeyboardAvoidingView, View, Modal, TouchableHighlight } from "react-native";
-import { useDispatch } from "react-redux";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  KeyboardAvoidingView,
+  View,
+  Modal,
+  TouchableHighlight,
+} from "react-native";
+//Redux
+import { useSelector, useDispatch } from "react-redux";
 import { addPost } from "../actions/addPost.js";
 
 export default function PostPage({ navigation }) {
@@ -10,6 +19,7 @@ export default function PostPage({ navigation }) {
   const [tagModalVisible, setTagModalVisible] = useState(false);
 
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userReducer.user);
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
@@ -17,7 +27,7 @@ export default function PostPage({ navigation }) {
       <TextInput
         style={styles.inputText}
         placeholder="Text/File"
-        multiline={true}
+        //multiline={true}
         body={body}
         onChangeText={(event) => setBody(event)}
       />
@@ -25,11 +35,11 @@ export default function PostPage({ navigation }) {
       <TextInput
         style={styles.inputText}
         placeholder="Caption"
-        multiline={true}
+        //multiline={true}
         title={title}
         onChangeText={(event) => setTitle(event)}
       />
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: "row" }}>
         <Modal
           animationType="fade"
           transparent={true}
@@ -37,7 +47,11 @@ export default function PostPage({ navigation }) {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}> Add a File Page. If a file is added, Composition Text Box is disabled. Not Yet Implemented! </Text>
+              <Text style={styles.modalText}>
+                {" "}
+                Add a File Page. If a file is added, Composition Text Box is
+                disabled. Not Yet Implemented!{" "}
+              </Text>
               <TouchableHighlight
                 style={styles.closeButton}
                 onPress={() => {
@@ -65,7 +79,10 @@ export default function PostPage({ navigation }) {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}> Add a Tag Page. Not yet Implemented! </Text>
+              <Text style={styles.modalText}>
+                {" "}
+                Add a Tag Page. Not yet Implemented!{" "}
+              </Text>
               <TouchableHighlight
                 style={styles.closeButton}
                 onPress={() => {
@@ -92,6 +109,7 @@ export default function PostPage({ navigation }) {
         onPress={() => {
           dispatch(
             addPost({
+              uri: user.uri,
               userId: String(Math.random() * 1000 + 100),
               id: String(Math.random() * 1000 + 100),
               title,
@@ -99,8 +117,7 @@ export default function PostPage({ navigation }) {
             })
           );
           navigation.pop();
-        }
-        }
+        }}
       >
         <Text style={styles.buttonText}>Post</Text>
       </TouchableHighlight>
@@ -154,7 +171,7 @@ const styles = StyleSheet.create({
     elevation: 10,
     height: 50,
     margin: 5,
-    width: '44%',
+    width: "44%",
     textAlign: "center",
     justifyContent: "center",
   },
@@ -183,14 +200,14 @@ const styles = StyleSheet.create({
     elevation: 10,
     height: 50,
     margin: 10,
-    width: '90%',
+    width: "90%",
     textAlign: "center",
     justifyContent: "center",
   },
   buttonText: {
-    fontFamily: 'GillSans-SemiBold',
+    fontFamily: "GillSans-SemiBold",
     color: "white",
     textAlign: "center",
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
 });

@@ -10,12 +10,14 @@ import ProfilePage from "./Components/ProfilePage";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { fetchPosts } from "./reducers/postReducer";
-import postReducer from "./reducers/postReducer";
+import { fetchUser } from "./reducers/userReducer";
+import rootReducer from "./reducers/rootReducer";
 import thunk from "redux-thunk";
 
-const store = createStore(postReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 store.dispatch(fetchPosts);
+store.dispatch(fetchUser);
 
 const Tab = createMaterialBottomTabNavigator();
 
