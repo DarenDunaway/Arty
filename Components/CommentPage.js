@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableHighlight } from 'react-native'
+import { View, Text, TextInput, StyleSheet } from 'react-native'
 
 const comments = [
     {
       name: "John Doe",
       text:
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Thats cool",
     },
     {
       name: "Jane Doe",
       text:
-        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "nice",
     },
     {
       name: "Johnny Appleseed",
       text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "thats bitchin",
     },
   ];
 
@@ -25,9 +25,9 @@ export default function Comments({}) {
 
     function renderComment(comment, i) {
         return (
-                <View key={i}>
-                    <Text style={styles.container}>{comment.name}</Text>
-                    <Text>{comment.text}</Text>
+                <View className = "comment" key={i}>
+                    <Text fontWeight= "bold">{comment.name}</Text>
+                    <Text>-{comment.text}</Text>
                     <Text></Text>
                     
                 </View>
@@ -35,10 +35,15 @@ export default function Comments({}) {
     };
 
     return(
-        <View style={styles.modal}>
+        <View className = "comment">
             {comments.map(renderComment)}
 
-            <Text></Text>
+            <TextInput
+            style={styles.inputText}
+            placeholder="User"
+            title={title}
+            onChangeText={(event) => setTitle(event)}
+            />
             <TextInput
             style={styles.inputText}
             placeholder="Comment"
@@ -50,33 +55,20 @@ export default function Comments({}) {
 }
 
 const styles = StyleSheet.create({
-    modal: {
-        width: 300,
-    },
     container: {
-        fontWeight: "bold",
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
     },
     inputText: {
-      height: 50,
+      height: 60,
       borderColor: "black",
       borderWidth: 1,
-      margin: 5,
-      padding: 5,
+      margin: 15,
+      padding: 10,
       width: "90%",
       justifyContent: "center",
       alignItems: "center",
     },
-    openButton: {
-        backgroundColor: "black",
-        borderRadius: 10,
-        padding: 10,
-        elevation: 10,
-        justifyContent: 'center',
-        alignItems: 'center'
-      },
-      textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center",
-      },
   });
