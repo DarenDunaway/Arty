@@ -146,9 +146,12 @@ function ProfileScreen() {
 
 export default function ProfilePage({ navigation }) {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{ animationEnabled: false }}
+    mode="modal"
+    >
       <Stack.Screen
-        name="Explore Page"
+        name="Profile Page"
         component={ProfileScreen}
         options={{
           title: "Arty",

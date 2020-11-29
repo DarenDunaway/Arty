@@ -25,23 +25,23 @@ export default function PostPage({ navigation }) {
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Text style={styles.sectionText}>Composition</Text>
       <TextInput
-        style={styles.inputText}
+        style={styles.compositionTextBox}
         placeholder="Text/File"
-        //multiline={true}
+        multiline={true}
         body={body}
         onChangeText={(event) => setBody(event)}
       />
       <Text style={styles.sectionText}>Caption</Text>
       <TextInput
-        style={styles.inputText}
+        style={styles.captionTextBox}
         placeholder="Caption"
-        //multiline={true}
+        multiline={true}
         title={title}
         onChangeText={(event) => setTitle(event)}
       />
       <View style={{ flexDirection: "row" }}>
         <Modal
-          animationType="fade"
+          animationType="slide"
           transparent={true}
           visible={fileModalVisible}
         >
@@ -73,7 +73,7 @@ export default function PostPage({ navigation }) {
           <Text style={styles.buttonText}>Add a File</Text>
         </TouchableHighlight>
         <Modal
-          animationType="fade"
+          animationType="slide"
           transparent={true}
           visible={tagModalVisible}
         >
@@ -133,8 +133,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  inputText: {
-    height: 175,
+  compositionTextBox: {
+    height: 225,
+    borderColor: "black",
+    borderWidth: 1,
+    margin: 15,
+    padding: 10,
+    width: "90%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  captionTextBox: {
+    height: 125,
     borderColor: "black",
     borderWidth: 1,
     margin: 15,

@@ -40,7 +40,7 @@ export default function PostList(props) {
               <Text style={styles.cardCaptionText}>{post.title}</Text>
               <Card.Divider style={{ backgroundColor: "black" }} />
               <Modal
-                animationType="fade"
+                animationType="slide"
                 transparent={true}
                 visible={modalVisible}
               >
