@@ -9,7 +9,7 @@ function ActivityScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Activity Page</Text>
+        <Text>Activity Page. Not Yet Implemented</Text>
       </View>
     </SafeAreaView>
   )
@@ -25,10 +25,12 @@ export default function ActivityPage() {
           title: 'Arty', headerStyle: {
             backgroundColor: 'black',
           },
-          headerTintColor: 'white',
           headerTitleStyle: {
-            fontWeight: 'bold',
-          }
+            fontWeight: "bold",
+            fontFamily: "Baskerville-Italic",
+            fontSize: 35
+          },
+          headerTintColor: 'white',
         }}
       />
     </Stack.Navigator>
@@ -41,11 +43,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 1,
     backgroundColor: '#ecf0f1',
-  },
-  paragraph: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 1
-  },
+  }
 });

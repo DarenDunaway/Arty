@@ -10,61 +10,38 @@ import {
 import { Card, ListItem, Avatar } from "react-native-elements";
 import CommentPage from './CommentPage'
 
-const users = [
-  {
-    name: "John Doe",
-    avatar_url:
-      "https://images.generated.photos/YK8FaJrvA_kB8sh6QgrOkanq6G8ak3W7c62DjW1dcpA/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAyODM3MjAuanBn.jpg",
-  },
-  {
-    name: "Jane Doe",
-    avatar_url:
-      "https://images.generated.photos/Q3jx0x773rW6MB2AaHQCztPKNmjoQWqH2jXsuND_T4g/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA5MDAwODkuanBn.jpg",
-  },
-  {
-    name: "Johnny Appleseed",
-    avatar_url:
-      "https://images.generated.photos/jPZ1NQyZT3W99wB8k_2uRLSQCScq0WvhPiJ2Iwyse5M/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAyNDM3MjEuanBn.jpg",
-  },
-];
-
-var profileHolder = { name: "", url: "" };
 export default function PostList(props) {
   const { posts } = props;
   const [modalVisible, setModalVisible] = useState(false);
 
-  function getRandomUser() {
-    var index = Math.floor(Math.random() * users.length);
-    profileHolder.name = users[index].name;
-    profileHolder.url = users[index].avatar_url;
-    console.log(profileHolder);
-    return index;
-  }
-
   return (
-    <View style={{ paddingTop: 20 }}>
-      <ScrollView style={{ margin: 5 }}>
+    <View>
+      <ScrollView>
         {posts &&
           posts.map((post) => (
-            <Card key={post.id}>
+            <Card
+              containerStyle={{
+                borderColor: "white",
+                backgroundColor: "white",
+              }}
+              key={post.id}
+            >
               <ListItem>
-                <Avatar
-                  rounded
-                  source={{ uri: users[getRandomUser()].avatar_url }}
-                />
+                <Avatar rounded size={50} source={{ uri: post.uri }} />
                 <ListItem.Content>
-                  <ListItem.Title>{profileHolder.name}</ListItem.Title>
+                  <ListItem.Title style={styles.cardUserName}>
+                    {post.name}
+                  </ListItem.Title>
                 </ListItem.Content>
               </ListItem>
-              <Card.Divider />
-              <Text style={{ marginBottom: 10 }}>{post.body}</Text>
-              <Card.Divider />
-              <Text>{profileHolder.name}</Text>
-              <Text>{post.title.toUpperCase()}</Text>
-              <Card.Divider />
-
+              <Card.Divider style={{ backgroundColor: "black" }} />
+              <Text style={styles.cardBodyText}>{post.body}</Text>
+              <Card.Divider style={{ backgroundColor: "black" }} />
+              <Text style={styles.cardCaptionUsername}>{post.name}</Text>
+              <Text style={styles.cardCaptionText}>{post.title}</Text>
+              <Card.Divider style={{ backgroundColor: "black" }} />
               <Modal
-                animationType="fade"
+                animationType="slide"
                 transparent={true}
                 visible={modalVisible}
               >
@@ -88,7 +65,11 @@ export default function PostList(props) {
                         setModalVisible(!modalVisible);
                       }}
                     >
+<<<<<<< HEAD
                       <Text style={styles.textStyle}>X</Text>
+=======
+                      <Text style={styles.buttonText}>Close Comments</Text>
+>>>>>>> b3a7d483da67334a7cf83838988d3c8b297e29e2
                     </TouchableHighlight>
                   </View>
                 </View>
@@ -99,7 +80,7 @@ export default function PostList(props) {
                   setModalVisible(true);
                 }}
               >
-                <Text style={styles.textStyle}>Comments</Text>
+                <Text style={styles.buttonText}>Comments</Text>
               </TouchableHighlight>
             </Card>
           ))}
@@ -109,18 +90,16 @@ export default function PostList(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 1,
-    backgroundColor: "#ecf0f1",
-  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+<<<<<<< HEAD
     marginTop: 22,
     backgroundColor: 'rgba(0,0,0,0.7)',
+=======
+    marginTop: 20,
+>>>>>>> b3a7d483da67334a7cf83838988d3c8b297e29e2
   },
   modalView: {
     margin: 20,
@@ -139,7 +118,6 @@ const styles = StyleSheet.create({
   },
   openButton: {
     backgroundColor: "black",
-    borderRadius: 20,
     padding: 10,
     elevation: 10,
   },
@@ -153,11 +131,31 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "black",
   },
-  image: {
-    width: 150,
-    height: 150,
-    borderColor: "red",
-    borderWidth: 2,
-    borderRadius: 75,
+  cardUserName: {
+    fontSize: 20,
+    marginLeft: 5,
+  },
+  cardBodyText: {
+    fontSize: 15,
+    fontWeight: "400",
+    marginBottom: 15,
+  },
+  cardCaptionText: {
+    fontSize: 12,
+    fontWeight: "400",
+    marginBottom: 15,
+  },
+  card: {
+    backgroundColor: "black",
+  },
+  buttonText: {
+    fontFamily: "GillSans-SemiBold",
+    color: "white",
+    textAlign: "center",
+    fontSize: 15,
+  },
+  cardCaptionUsername: {
+    fontSize: 15,
+    fontWeight: "600",
   },
 });

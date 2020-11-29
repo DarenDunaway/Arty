@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -8,17 +7,17 @@ import ExplorePage from "./Components/ExplorePage";
 import ActivityPage from "./Components/ActivityPage";
 import ProfilePage from "./Components/ProfilePage";
 
-//Redux
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { fetchPosts } from "./reducers/postReducer";
-import postReducer from "./reducers/postReducer";
+import { fetchUser } from "./reducers/userReducer";
+import rootReducer from "./reducers/rootReducer";
 import thunk from "redux-thunk";
 
-const store = createStore(postReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
-//Initialize the post array with posts from the API
 store.dispatch(fetchPosts);
+store.dispatch(fetchUser);
 
 const Tab = createMaterialBottomTabNavigator();
 
