@@ -65,11 +65,7 @@ export default function PostList(props) {
                         setModalVisible(!modalVisible);
                       }}
                     >
-<<<<<<< HEAD
                       <Text style={styles.textStyle}>X</Text>
-=======
-                      <Text style={styles.buttonText}>Close Comments</Text>
->>>>>>> b3a7d483da67334a7cf83838988d3c8b297e29e2
                     </TouchableHighlight>
                   </View>
                 </View>
