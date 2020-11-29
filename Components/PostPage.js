@@ -120,7 +120,7 @@ export default function PostPage({ navigation }) {
           navigation.pop();
         }}
       >
-        <Text style={styles.postButtonText}>Post</Text>
+        <Text style={styles.buttonText}>Post</Text>
       </TouchableHighlight>
     </KeyboardAvoidingView>
   );
@@ -218,12 +218,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: {
-    fontFamily: "GillSans-SemiBold",
-    color: "white",
-    textAlign: "center",
-    fontSize: 20,
-  },
-  postButtonText: {
     fontFamily: "GillSans-SemiBold",
     color: "white",
     textAlign: "center",

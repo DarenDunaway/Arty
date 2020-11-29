@@ -12,7 +12,7 @@ function ActivityScreen() {
         <Text style={styles.header}>Recent Activity</Text>
       </View>
 
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", marginBottom: "120%"}}>
         <View style={styles.recentItem1}>
           <View style={styles.recentItemIndicator_online}></View>
           <View style={{ width: 250 }}>
@@ -97,22 +97,22 @@ const styles = StyleSheet.create({
   recentItem1: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 10,
+    marginTop: 10,
   },
   recentItem2: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 10,
+    marginTop: 10,
   },
   recentItem3: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 10,
+    marginTop: 10,
   },
   recentItem4: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 540,
+    marginTop: 10
   },
   recentItemIndicator_offline: {
     backgroundColor: "#CABFAB",
