@@ -25,13 +25,13 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Tab.Navigator barStyle={{ backgroundColor: "black" }}>
+        <Tab.Navigator barStyle={{ backgroundColor: "#EC524B" }}>
           <Tab.Screen
             name="Home"
             component={HomePage}
             options={{
               tabBarLabel: "Home",
-              tabBarIcon: ({ color }) => (
+              tabBarIcon: () => (
                 <MaterialCommunityIcons name="home" color="white" size={26} />
               ),
             }}
@@ -41,7 +41,7 @@ export default function App() {
             component={ExplorePage}
             options={{
               tabBarLabel: "Explore",
-              tabBarIcon: ({ color }) => (
+              tabBarIcon: () => (
                 <MaterialCommunityIcons
                   name="magnify"
                   color="white"
@@ -55,7 +55,7 @@ export default function App() {
             component={ActivityPage}
             options={{
               tabBarLabel: "Activity",
-              tabBarIcon: ({ color }) => (
+              tabBarIcon: () => (
                 <MaterialCommunityIcons name="bell" color="white" size={26} />
               ),
             }}
@@ -65,7 +65,7 @@ export default function App() {
             component={ProfilePage}
             options={{
               tabBarLabel: "Profile",
-              tabBarIcon: ({ color }) => (
+              tabBarIcon: () => (
                 <MaterialCommunityIcons
                   name="account"
                   color="white"

@@ -28,7 +28,7 @@ function ProfileScreen() {
   const user = useSelector((state) => state.userReducer.user);
 
   const [bioMessage = "Default Bio", setbioMessage] = useState();
-  const [bioName = "John Doe", setbioName] = useState();
+  const [bioName = "Mario", setbioName] = useState();
   const [bioOccupation = "Student", setbioOccupation] = useState();
 
   function editBio() {
@@ -96,7 +96,7 @@ function ProfileScreen() {
 
         <View style={styles.metricContainer}>
           <View style={styles.metricBox}>
-            <Text style={{ fontSize: 24 }}>23</Text>
+            <Text style={{ fontSize: 24 }}>3</Text>
             <Text>Posts</Text>
           </View>
           <View
@@ -105,7 +105,7 @@ function ProfileScreen() {
               { borderColor: "grey", borderLeftWidth: 1, borderRightWidth: 1 },
             ]}
           >
-            <Text style={{ fontSize: 24 }}>420</Text>
+            <Text style={{ fontSize: 24 }}>421</Text>
             <Text>Followers</Text>
           </View>
           <View style={styles.metricBox}>
@@ -156,7 +156,7 @@ export default function ProfilePage({ navigation }) {
         options={{
           title: "Arty",
           headerStyle: {
-            backgroundColor: "black",
+            backgroundColor: "#EC524B",
           },
           headerTintColor: "white",
           headerTitleStyle: {
@@ -189,7 +189,7 @@ export default function ProfilePage({ navigation }) {
           animationEnabled: true,
           title: "Settings",
           headerStyle: {
-            backgroundColor: "black",
+            backgroundColor: "#EC524B",
           },
           headerTintColor: "white",
           headerTitleStyle: {
@@ -206,7 +206,7 @@ export default function ProfilePage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#f3eac2",
   },
   paragraph: {
     fontSize: 18,

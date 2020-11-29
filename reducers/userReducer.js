@@ -29,7 +29,7 @@ const userReducer = (state = {}, action) => {
 export async function fetchUser(dispatch) {
   let user = {
     bio: "Default Bio",
-    username: "John Doe",
+    username: "Mario",
     occupation: "Student",
     uri:
       "https://ap.rdcpix.com/f67f6160888509efab3ab114fbfddddal-m3829931301xd-w1020_h770_q80.jpg",

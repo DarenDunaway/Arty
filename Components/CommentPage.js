@@ -2,73 +2,67 @@ import React, { useState } from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 
 const comments = [
-    {
-      name: "John Doe",
-      text:
-        "Thats cool",
-    },
-    {
-      name: "Jane Doe",
-      text:
-        "nice",
-    },
-    {
-      name: "Johnny Appleseed",
-      text:
-        "thats bitchin",
-    },
-  ];
+  {
+    name: "John Doe",
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Jane Doe",
+    text:
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  },
+  {
+    name: "Johnny Appleseed",
+    text:
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  },
+];
 
-export default function Comments({}) {
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
+export default function Comments({ }) {
+  const [comment, setComment] = useState("");
 
-    function renderComment(comment, i) {
-        return (
-                <View className = "comment" key={i}>
-                    <Text fontWeight= "bold">{comment.name}</Text>
-                    <Text>-{comment.text}</Text>
-                    <Text></Text>
-                    
-                </View>
-        )
-    };
-
-    return(
-        <View className = "comment">
-            {comments.map(renderComment)}
-
-            <TextInput
-            style={styles.inputText}
-            placeholder="User"
-            title={title}
-            onChangeText={(event) => setTitle(event)}
-            />
-            <TextInput
-            style={styles.inputText}
-            placeholder="Comment"
-            title={title}
-            onChangeText={(event) => setTitle(event)}
-            />
-        </View>
+  function renderComment(comment, i) {
+    return (
+      <View className="comment" key={i}>
+        <Text style={styles.text}>{comment.name}</Text>
+        <Text>{comment.text}</Text>
+        <Text></Text>
+      </View>
     )
+  };
+
+  return (
+    <View className="comment">
+      {comments.map(renderComment)}
+      <TextInput
+        style={styles.inputText}
+        placeholder="Comment"
+        title={comment}
+        onChangeText={(event) => setComment(event)}
+      />
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    inputText: {
-      height: 60,
-      borderColor: "black",
-      borderWidth: 1,
-      margin: 15,
-      padding: 10,
-      width: "90%",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  inputText: {
+    height: 60,
+    borderColor: "black",
+    borderWidth: 1,
+    margin: 10,
+    padding: 10,
+    width: "90%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    fontWeight: "bold"
+  },
+});

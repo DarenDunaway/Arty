@@ -120,7 +120,7 @@ export default function PostPage({ navigation }) {
           navigation.pop();
         }}
       >
-        <Text style={styles.buttonText}>Post</Text>
+        <Text style={styles.postButtonText}>Post</Text>
       </TouchableHighlight>
     </KeyboardAvoidingView>
   );
@@ -129,7 +129,7 @@ export default function PostPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#F3EAC2",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     width: "90%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: 'white'
   },
   captionTextBox: {
     height: 125,
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
     width: "90%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: 'white'
   },
   sectionText: {
     fontSize: 20,
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   openButton: {
-    backgroundColor: "black",
+    backgroundColor: "#EC524B",
     elevation: 10,
     height: 50,
     margin: 5,
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
     color: "black",
   },
   postButton: {
-    backgroundColor: "black",
+    backgroundColor: "#EC524B",
     color: "#FE434C",
     elevation: 10,
     height: 50,
@@ -221,4 +223,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
   },
+  postButtonText: {
+    fontFamily: "GillSans-SemiBold",
+    color: "white",
+    textAlign: "center",
+    fontSize: 20,
+  }
 });

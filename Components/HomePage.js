@@ -34,7 +34,7 @@ export default function HomePage({ navigation }) {
         options={{
           title: "Arty",
           headerStyle: {
-            backgroundColor: "black",
+            backgroundColor: "#EC524B",
           },
           headerTintColor: "white",
           headerTitleStyle: {
@@ -69,7 +69,7 @@ export default function HomePage({ navigation }) {
           animationEnabled: true,
           title: "Arty",
           headerStyle: {
-            backgroundColor: "black",
+            backgroundColor: "#EC524B",
           },
           headerTintColor: "white",
           headerTitleStyle: {
@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 1,
-    backgroundColor: "white",
+    backgroundColor: "#F3EAC2",
   },
 });

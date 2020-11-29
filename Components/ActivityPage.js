@@ -68,7 +68,7 @@ export default function ActivityPage() {
         options={{
           title: "Arty",
           headerStyle: {
-            backgroundColor: "black",
+            backgroundColor: "#EC524B",
           },
           headerTitleStyle: {
             fontWeight: "bold",
@@ -85,12 +85,14 @@ export default function ActivityPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#f3eac2",
   },
   header: {
     flex: 1,
     justifyContent: "flex-start",
     top: 10,
+    fontWeight: 'bold',
+    fontSize: 18
   },
   recentItem1: {
     flexDirection: "row",
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
   recentItem4: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 470,
+    marginBottom: 540,
   },
   recentItemIndicator_offline: {
     backgroundColor: "#CABFAB",
@@ -122,7 +124,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   recentItemIndicator_online: {
-    backgroundColor: "lightsalmon",
+    backgroundColor: "#9ad3bc",
     padding: 4,
     height: 12,
     width: 12,

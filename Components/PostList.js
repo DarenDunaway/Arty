@@ -26,7 +26,10 @@ export default function PostList(props) {
               }}
               key={post.id}
             >
-              <ListItem>
+              <ListItem containerStyle={{
+                borderColor: "white",
+                backgroundColor: "white",
+              }}>
                 <Avatar rounded size={50} source={{ uri: post.uri }} />
                 <ListItem.Content>
                   <ListItem.Title style={styles.cardUserName}>
@@ -37,7 +40,6 @@ export default function PostList(props) {
               <Card.Divider style={{ backgroundColor: "black" }} />
               <Text style={styles.cardBodyText}>{post.body}</Text>
               <Card.Divider style={{ backgroundColor: "black" }} />
-              <Text style={styles.cardCaptionUsername}>{post.name}</Text>
               <Text style={styles.cardCaptionText}>{post.title}</Text>
               <Card.Divider style={{ backgroundColor: "black" }} />
               <Modal
@@ -48,15 +50,24 @@ export default function PostList(props) {
                 <View style={styles.centeredView}>
                   <View style={styles.modalView}>
                     <Text style={styles.modalText}>
-                      <CommentPage/>
+                      <CommentPage />
                     </Text>
                     <TouchableHighlight
-                      style={{ ...styles.openButton, backgroundColor: "black" }}
+                      style={{ ...styles.openButton, backgroundColor: "#9ad3bc" }}
                       onPress={() => {
                         setModalVisible(!modalVisible);
                       }}
                     >
-                      <Text style={styles.textStyle}>Close Comments</Text>
+                      <Text style={styles.textStyle}>Submit</Text>
+                    </TouchableHighlight>
+                    <Text></Text>
+                    <TouchableHighlight
+                      style={{ ...styles.openButton, backgroundColor: "#9ad3bc" }}
+                      onPress={() => {
+                        setModalVisible(!modalVisible);
+                      }}
+                    >
+                      <Text style={styles.textStyle}>X</Text>
                     </TouchableHighlight>
                   </View>
                 </View>
@@ -88,24 +99,25 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
+    borderColor: 'black',
     padding: 35,
     alignItems: "center",
-    shadowColor: "grey",
+    shadowColor: "black",
     shadowOffset: {
       width: 0,
       height: 5,
     },
     shadowOpacity: 0.5,
-    shadowRadius: 4,
+    shadowRadius: 100,
     elevation: 10,
   },
   openButton: {
-    backgroundColor: "black",
+    backgroundColor: "#9AD3BC",
     padding: 10,
     elevation: 10,
   },
   textStyle: {
-    color: "white",
+    color: "black",
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -133,12 +145,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: "GillSans-SemiBold",
-    color: "white",
+    color: "black",
     textAlign: "center",
     fontSize: 15,
-  },
-  cardCaptionUsername: {
-    fontSize: 15,
-    fontWeight: "600",
-  },
+  }
 });
