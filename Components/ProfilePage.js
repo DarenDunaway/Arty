@@ -235,6 +235,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     marginTop: 16,
+    width: "90%",
   },
   metricContainer: {
     flexDirection: "row",

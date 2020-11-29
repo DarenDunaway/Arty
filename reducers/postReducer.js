@@ -6,7 +6,6 @@ const postReducer = (state = [], action) => {
       };
     }
     case "ADD_POST": {
-      console.log(JSON.stringify(action.payload));
       return {
         posts: [action.payload, ...state.posts],
       };
