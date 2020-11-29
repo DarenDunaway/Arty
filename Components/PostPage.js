@@ -114,6 +114,7 @@ export default function PostPage({ navigation }) {
               id: String(Math.random() * 1000 + 100),
               title,
               body,
+              name: user.username,
             })
           );
           navigation.pop();

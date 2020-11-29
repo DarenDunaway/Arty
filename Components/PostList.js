@@ -8,11 +8,9 @@ import {
   TouchableHighlight,
 } from "react-native";
 import { Card, ListItem, Avatar } from "react-native-elements";
-import { useSelector } from "react-redux";
 
 export default function PostList(props) {
   const { posts } = props;
-  const user = useSelector((state) => state.userReducer.user);
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
